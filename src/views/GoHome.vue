@@ -16,10 +16,6 @@
         </el-row>
     </div>
     <el-row :gutter="20" style="margin-bottom: 50px" type="flex" justify="center" v-else-if="!showFlag">
-
-        <!--<div>-->
-        <!--<span>已加班时长: {{counter}} </span>-->
-        <!--</div>-->
         <el-col :span="10">
             <div style="color: brown;font-size: 80px">还在加班？</div>
             <el-image
@@ -54,10 +50,8 @@
             return {
                 //北京时间
                 beijingTime: '',
-
+                //下班倒计时
                 goOffWork: Date.now() + (new Date().setHours(18, 0, 0) - Date.now()),
-
-                counter: '',
                 //倒计时显示切换
                 showFlag: true,
                 //图片url
@@ -82,6 +76,7 @@
             }
         },
         methods: {
+            //倒计时结束后触发方法
             hilarity() {
                 //倒计时已经达到 关闭倒计时
                 this.showFlag = false;
